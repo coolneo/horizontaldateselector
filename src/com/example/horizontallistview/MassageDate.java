@@ -1,5 +1,7 @@
 package com.example.horizontallistview;
 
+import hirondelle.date4j.DateTime;
+
 import java.io.Serializable;
 
 public class MassageDate implements Serializable{
@@ -11,7 +13,28 @@ public class MassageDate implements Serializable{
 	
 	private String day;
 	private String date;
+	private String month;
+	private String year;
+	private DateTime dateTime;
 
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public DateTime getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(DateTime dateTime) {
+		this.dateTime = dateTime;
+	}
 	public String getDay() {
 		return day;
 	}

@@ -13,10 +13,15 @@ public class MassageDateListAdapter extends BaseAdapter {
 	
 	Context mContext;
 	ArrayList<MassageDate> mMassageDateList = new ArrayList<MassageDate>();
+	int mParentWidth;
 	
 	public MassageDateListAdapter(Context context, ArrayList<MassageDate> massageDateList) {
 		mContext = context;
 		mMassageDateList = massageDateList;
+	}
+	
+	public void setParentListView(int width) {
+		mParentWidth = width;
 	}
 
 	@Override
@@ -45,9 +50,15 @@ public class MassageDateListAdapter extends BaseAdapter {
         MassageDate dateTime = mMassageDateList.get(position);
         TextView dayTextView = (TextView)row.findViewById(R.id.day_textview);
         TextView dateTextView = (TextView)row.findViewById(R.id.date_textview);
-        
+                
         dayTextView.setText(dateTime.getDay());
         dateTextView.setText(dateTime.getDate());
+        
+        int width = mParentWidth/7;
+        
+        dayTextView.setWidth(width);
+        dateTextView.setWidth(width);
+        
         return row;
 	}
 }

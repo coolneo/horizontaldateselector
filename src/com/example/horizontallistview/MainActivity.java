@@ -50,6 +50,10 @@ public class MainActivity extends Activity
 		listview = (HorizontalListView) findViewById(R.id.listview);
 		
 		MassageDateListAdapter dateListAdapter = new MassageDateListAdapter(this, DateUtil.getMassageModel());
+		
+		int width = getResources().getDisplayMetrics().widthPixels;		
+		dateListAdapter.setParentListView(width);
+		
 		listview.setAdapter(dateListAdapter);
 		
 		listview.setOnItemClickListener(new OnItemClickListener() {
@@ -59,6 +63,8 @@ public class MainActivity extends Activity
 				MassageDate selectedDate = (MassageDate)parent.getItemAtPosition(position);
 				String selectedText = String.format("Selected Date = %s Selected Day = %s", selectedDate.getDate(), selectedDate.getDay());
 				Toast.makeText(MainActivity.this, selectedText, Toast.LENGTH_SHORT).show();
+				t2.setText(selectedDate.getMonth());
+				t3.setText(selectedDate.getYear());
 			}
 		});		
 	}

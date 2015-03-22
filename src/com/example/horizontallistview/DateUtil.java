@@ -31,10 +31,15 @@ public class DateUtil {
 			MassageDate massageModel = new MassageDate();
 			DateTime tempDateTime = dateTime.plusDays(i);
 			String day = tempDateTime.format("WWW", Locale.getDefault());
+			String month = tempDateTime.format("MMMM", Locale.getDefault());
 			String date = String.format(Locale.getDefault(), "%d", tempDateTime.getDay());
+			String year = String.format(Locale.getDefault(), "%d", tempDateTime.getYear());
 			
 			massageModel.setDate(date);
 			massageModel.setDay(day);
+			massageModel.setMonth(month);
+			massageModel.setYear(year);
+			massageModel.setDateTime(tempDateTime);
 			
 			massageModelList.add(massageModel);
 		}
